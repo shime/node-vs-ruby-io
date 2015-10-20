@@ -11,7 +11,7 @@ var SIZES = {
   medium: [500, 500],
   small: [300, 300],
 }
-var URL = "http://www.planwallpaper.com/static/images/2022725-wallpaper_625864_Iz6NK8G.jpg"
+var URL = process.env.IMAGE_URL || "http://www.planwallpaper.com/static/images/2022725-wallpaper_625864_Iz6NK8G.jpg"
 
 AWS.config.update({
   "accessKeyId": process.env.ACCESS_KEY_ID,
