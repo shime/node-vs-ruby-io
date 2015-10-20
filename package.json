@@ -1,0 +1,20 @@
+{
+  "name": "rubyvsnodeio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gist.github.com/210f24fa80bdbff1f221.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gist.github.com/210f24fa80bdbff1f221"
+  },
+  "homepage": "https://gist.github.com/210f24fa80bdbff1f221"
+}
