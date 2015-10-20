@@ -6,7 +6,7 @@ namespace :run do
 
   desc "Run Node benchmark"
   task :node do
-    # TODO
+    sh "node node_io_speed.js"
   end
 
   desc "Run all benchmarks"
