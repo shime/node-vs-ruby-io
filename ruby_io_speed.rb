@@ -21,7 +21,7 @@ require "open-uri"
 require "benchmark"
 
 start = Time.now.to_f
-file = open(ENV["IMAGE_URL"] || "http://www.planwallpaper.com/static/images/2022725-wallpaper_625864_Iz6NK8G.jpg")
+file = open(ENV["IMAGE_URL"] || "http://i.imgur.com/y06fQDX.jpg")
 
 version_800 = resize_to_limit!(file, 800, 800)
 version_500 = resize_to_limit(version_800, 500, 500)
