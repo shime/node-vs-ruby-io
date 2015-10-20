@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://gist.github.com/210f24fa80bdbff1f221"
   },
-  "homepage": "https://gist.github.com/210f24fa80bdbff1f221"
+  "homepage": "https://gist.github.com/210f24fa80bdbff1f221",
+  "dependencies": {
+    "async": "^1.4.2",
+    "aws-sdk": "^2.0.17",
+    "dotenv": "^1.2.0",
+    "request": "^2.44.0",
+    "s3-upload-stream": "^1.0.2",
+    "sharp": "^0.11.3"
+  }
 }
