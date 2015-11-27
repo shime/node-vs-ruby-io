@@ -4,8 +4,6 @@ Dotenv.load!
 require "image_processing/mini_magick"
 include ImageProcessing::MiniMagick
 
-require "benchmark"
-
 start = Time.now.to_f
 file = File.open("bridge.jpg")
 
