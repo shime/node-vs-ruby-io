@@ -1,23 +1,9 @@
 require "dotenv"
 Dotenv.load!
 
-require "aws-sdk"
-
-aws_options = {
-  access_key_id:     ENV.fetch("ACCESS_KEY_ID"),
-  secret_access_key: ENV.fetch("SECRET_ACCESS_KEY"),
-  region:            ENV.fetch("REGION"),
-}
-
-bucket_name = ENV.fetch("BUCKET")
-
-s3 = Aws::S3::Resource.new(aws_options)
-bucket = s3.bucket(bucket_name)
-
 require "image_processing/mini_magick"
 include ImageProcessing::MiniMagick
 
-require "open-uri"
 require "benchmark"
 
 start = Time.now.to_f
