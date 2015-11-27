@@ -5,42 +5,28 @@ var AWS = require('aws-sdk')
 var s3stream = require('s3-upload-stream')
 var request = require('request')
 var async = require('async')
+var fs = require('fs')
 
 var SIZES = {
   large: [800, 800],
   medium: [500, 500],
   small: [300, 300],
 }
-var URL = process.env.IMAGE_URL || "http://i.imgur.com/y06fQDX.jpg"
-
-AWS.config.update({
-  "accessKeyId": process.env.ACCESS_KEY_ID,
-  "secretAccessKey": process.env.SECRET_ACCESS_KEY,
-  "region": process.env.REGION
-})
-s3stream.client(new AWS.S3())
 
 var performUpload = function(size, next){
   var name = size + ".jpg"
-  var upload   = new s3stream.upload({
-    "Bucket":       process.env.BUCKET,
-    "Key":          name,
-    "ACL":          "public-read"
-  })
   var resizer = function(){
     var client = sharp()
     return client.resize.
       apply(client, SIZES[size]).max()
   }
 
-  upload.on('error', next)
-  upload.on('uploaded', function(){ next(null) })
-
-  image.pipe(resizer(size)).pipe(upload)
+  image.pipe(resizer(size)).pipe(fs.createWriteStream(name))
+  next()
 }
 
 console.time('Took')
-var image = request(URL)
+var image = fs.createReadStream('bridge.jpg')
 async.map(Object.keys(SIZES), performUpload, function(err, pics){
   if (err) throw err
 

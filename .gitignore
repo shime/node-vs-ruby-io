@@ -2,3 +2,7 @@
 Gemfile.lock
 node_modules
 *.log
+.DS_Store
+small.jpg
+medium.jpg
+large.jpg

@@ -21,14 +21,14 @@ require "open-uri"
 require "benchmark"
 
 start = Time.now.to_f
-file = open(ENV["IMAGE_URL"] || "http://i.imgur.com/y06fQDX.jpg")
+file = File.open("bridge.jpg")
 
 version_800 = resize_to_limit!(file, 800, 800)
 version_500 = resize_to_limit(version_800, 500, 500)
 version_300 = resize_to_limit(version_500, 300, 300)
 
-bucket.object("large.jpg").put(body: version_800)
-bucket.object("medium.jpg").put(body: version_500)
-bucket.object("small.jpg").put(body: version_300)
+File.write("large.jpg", version_800)
+File.write("medium.jpg", version_500)
+File.write("small.jpg", version_300)
 
 puts "Took: #{((Time.now - start).to_f * 1000).to_i}ms"
