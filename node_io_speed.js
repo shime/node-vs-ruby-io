@@ -1,9 +1,4 @@
-require('dotenv').load()
-
 var sharp = require('sharp')
-var AWS = require('aws-sdk')
-var s3stream = require('s3-upload-stream')
-var request = require('request')
 var async = require('async')
 var fs = require('fs')
 

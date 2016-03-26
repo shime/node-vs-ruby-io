@@ -1,18 +1,22 @@
-require "dotenv"
-Dotenv.load!
+require "vips8"
+SIZES = {
+  large:  [800, 800],
+  medium: [500, 500],
+  small:  [300, 300],
+}
 
-require "image_processing/mini_magick"
-include ImageProcessing::MiniMagick
-
+image = Vips::Image.new_from_file("bridge.jpg")
 start = Time.now.to_f
-file = File.open("bridge.jpg")
+threads = []
 
-version_800 = resize_to_limit!(file, 800, 800)
-version_500 = resize_to_limit(version_800, 500, 500)
-version_300 = resize_to_limit(version_500, 300, 300)
 
-File.write("large.jpg", version_800)
-File.write("medium.jpg", version_500)
-File.write("small.jpg", version_300)
+SIZES.each do |size, (width, height)|
+    threads << Thread.new {
+      factor = image.width.to_f / width
+      filename = size.to_s + ".jpg"
+      image.shrink(factor, factor).write_to_file(filename)
+    }
+end
 
+threads.each(&:join)
 puts "Took: #{((Time.now - start).to_f * 1000).to_i}ms"
