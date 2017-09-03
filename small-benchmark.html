@@ -1,0 +1,59 @@
+<html>
+  <head>
+  </head>
+
+  <body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+<div style="width: 500px; height: 500px">
+<canvas id="myChart" width="500" height="300"></canvas>
+</div>
+<script>
+  var ctx = document.getElementById("myChart").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+      datasets: [{
+        label: 'Ruby',
+        data: [74, 61, 56, 55, 54, 58, 56, 58, 58, 58],
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        fill: false,
+        borderColor: 'rgba(255,99,132,1)',
+      },
+      {
+        label: 'Node',
+        data: [82, 78, 92, 102, 96, 93, 77, 83, 79, 112],
+        backgroundColor: 'rgba(1, 173, 1, 0.2)',
+        fill: false,
+        borderColor: 'rgba(1, 173, 7, 1)',
+      }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Processing speed - 52K image (less is better)'
+      },
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: "Run time (ms)"
+          },
+          ticks: {
+            beginAtZero:true
+          }
+        }],
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: "Step"
+          },
+        }]
+      }
+    }
+  });
+</script>
+  </body>
+</html>
+
