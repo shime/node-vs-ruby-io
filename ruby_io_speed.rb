@@ -1,4 +1,4 @@
-require "vips8"
+require "vips"
 SIZES = {
   large:  [800, 800],
   medium: [500, 500],
