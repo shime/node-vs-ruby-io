@@ -8,6 +8,12 @@ Operations:
 * write thumbnails to disk
 
 ## Results
+
+Benchmarking results on Macbook Air 2015 i7 8GB RAM.
+
+* Ruby version: 2.3.4p301
+* Node version: 8.0.0
+
 ### Large image
 ![](/large-benchmark.png)
 
