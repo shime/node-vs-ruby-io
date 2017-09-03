@@ -3,5 +3,7 @@ Gemfile.lock
 node_modules
 *.log
 .DS_Store
-*.jpg
+small.jpg
+medium.jpg
+large.jpg
 
