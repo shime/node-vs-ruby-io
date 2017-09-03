@@ -21,7 +21,7 @@ var performUpload = function(size, next){
 }
 
 console.time('Took')
-var image = fs.createReadStream('bridge.jpg')
+var image = fs.createReadStream('cakes.jpg')
 async.map(Object.keys(SIZES), performUpload, function(err, pics){
   if (err) throw err
 
