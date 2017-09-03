@@ -16,8 +16,8 @@ var performUpload = function(size, next){
       apply(client, SIZES[size]).max()
   }
 
-  image.pipe(resizer(size)).pipe(fs.createWriteStream(name))
-  next()
+  var stream = image.pipe(resizer(size)).pipe(fs.createWriteStream(name))
+  stream.on("close", next)
 }
 
 console.time('Took')
