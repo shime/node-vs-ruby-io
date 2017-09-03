@@ -7,10 +7,11 @@ Operations:
 * resize it in small, medium and large size
 * write thumbnails to disk
 
-## Large image
+## Results
+### Large image
 ![](/large-benchmark.png)
 
-## Small image
+### Small image
 ![](/small-benchmark.png)
 
 ## Running benchmarks
