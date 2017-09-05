@@ -1,6 +1,5 @@
 var sharp = require('sharp')
 var async = require('async')
-var fs = require('fs')
 
 var SIZES = {
   large: [800, 800],
@@ -10,18 +9,13 @@ var SIZES = {
 
 var performUpload = function(size, next){
   var name = size + ".jpg"
-  var resizer = function(){
-    var client = sharp()
-    return client.resize.
-      apply(client, SIZES[size]).max()
-  }
-
-  var stream = image.pipe(resizer(size)).pipe(fs.createWriteStream(name))
-  stream.on("close", next)
+  sharp('cakes.jpg')
+    .resize(SIZES[size][0], SIZES[size][1])
+    .toFile(name, next);
 }
 
 console.time('Took')
-var image = fs.createReadStream('cakes.jpg')
+
 async.map(Object.keys(SIZES), performUpload, function(err, pics){
   if (err) throw err
 
