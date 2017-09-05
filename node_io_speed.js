@@ -1,6 +1,8 @@
 var sharp = require('sharp')
 var async = require('async')
 
+sharp.simd(true);
+
 var SIZES = {
   large: [800, 800],
   medium: [500, 500],

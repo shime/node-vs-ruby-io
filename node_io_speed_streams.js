@@ -2,6 +2,8 @@ var sharp = require('sharp')
 var async = require('async')
 var fs = require('fs')
 
+sharp.simd(true);
+
 var SIZES = {
   large: [800, 800],
   medium: [500, 500],
@@ -13,7 +15,7 @@ var performUpload = function(size, next){
   var resizer = function(){
     var client = sharp()
     return client.resize.
-      apply(client, SIZES[size]).max()
+      apply(client, SIZES[size])
   }
 
   var stream = image.pipe(resizer(size)).pipe(fs.createWriteStream(name))
