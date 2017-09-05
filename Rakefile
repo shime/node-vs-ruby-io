@@ -9,8 +9,13 @@ namespace :run do
     sh "node node_io_speed.js"
   end
 
+  desc "Run Node benchmark with streams"
+  task "node:streams" do
+    sh "node node_io_speed_streams.js"
+  end
+
   desc "Run all benchmarks"
-  task :all => [:ruby, :node]
+  task :all => [:ruby, :node, "node:streams"]
 end
 
 namespace :install do
