@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 require "mini_magick"
-require_relative "mem"
-
-mem = MemoryUsageMonitor.new(frequency: 0.1)
-mem.start
 
 ORIGINAL = "cakes.jpg"
 
@@ -25,7 +21,3 @@ end.each(&:join)
 stop = Time.now
 
 puts "Took: #{((stop - start) * 1000).to_i}ms"
-
-mem.stop
-puts mem.peak_memory
-puts mem.log.inspect
