@@ -12,7 +12,7 @@ var SIZES = {
 var performUpload = function(size, next){
   var name = size + ".jpg"
   sharp('cakes.jpg')
-    .resize(SIZES[size][0], SIZES[size][1])
+    .resize(SIZES[size][0])
     .toFile(name, next);
 }
 
