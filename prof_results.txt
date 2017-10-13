@@ -43,19 +43,19 @@ Allocated objects by gem
 
 Ruby ImageProcessing-MiniMagick
 -----------------------------------
-Total allocated: 12716798 bytes (1303 objects)
-Total retained:  1055313 bytes (68 objects)
+Total allocated: 12707842 bytes (1213 objects)
+Total retained:  3425 bytes (48 objects)
 
 Allocated memory by gem
-   6315686  mini_magick-4.8.0
-   3166819  ruby-2.4.2/lib
+   6315429  mini_magick-4.8.0
+   3161408  ruby-2.4.2/lib
    3150496  other
      79309  rubygems
-      4488  image_processing-0.4.5
+      1200  image_processing-0.4.5
 
 Allocated objects by gem
        842  rubygems
        206  mini_magick-4.8.0
-       167  ruby-2.4.2/lib
-        57  image_processing-0.4.5
+       107  ruby-2.4.2/lib
         31  other
+        27  image_processing-0.4.5

@@ -2,6 +2,7 @@
 
 require 'memory_profiler'
 require "image_processing/mini_magick"
+require 'fileutils'
 
 ORIGINAL = "cakes.jpg"
 
@@ -19,8 +20,9 @@ MemoryProfiler.start
 SIZES.map do |size, (width, height)|
   Thread.new do
     name = size.to_s + ".jpg"
-    image = File.open(ORIGINAL)
-    ImageProcessing::MiniMagick.resize_to_fit(image, width, height)
+    FileUtils.cp(ORIGINAL, name)
+    image = File.open(name)
+    ImageProcessing::MiniMagick.resize_to_fit!(image, width, height)
     image.close
   end
 end.each(&:join)
