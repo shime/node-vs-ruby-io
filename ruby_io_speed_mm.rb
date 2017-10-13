@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require "vips"
+require "mini_magick"
 
 ORIGINAL = "cakes.jpg"
 
@@ -14,7 +14,7 @@ start = Time.now
 SIZES.map do |size, (width, height)|
   Thread.new do
     name = size.to_s + ".jpg"
-    Vips::Image.thumbnail(ORIGINAL, width).write_to_file(name)
+    MiniMagick::Image.open(ORIGINAL).resize("#{width}x#{height}").write(name)
   end
 end.each(&:join)
 

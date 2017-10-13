@@ -1,4 +1,9 @@
 namespace :run do
+  desc "Run Ruby Minimagick benchmark"
+  task "ruby:mini" do
+    sh "ruby ruby_io_speed_mm.rb"
+  end
+
   desc "Run Ruby benchmark"
   task :ruby do
     sh "ruby ruby_io_speed.rb"
@@ -15,7 +20,7 @@ namespace :run do
   end
 
   desc "Run all benchmarks"
-  task :all => [:ruby, :node, "node:streams"]
+  task :all => ["ruby:mini", :ruby, :node, "node:streams"]
 end
 
 namespace :install do

@@ -1,0 +1,61 @@
+Time taken:
+-----------------------------------
+Ruby Vips - 321 ms
+Ruby Minimagick - 895 ms
+Ruby ImageProcessing-MiniMagick - 867 ms
+
+
+
+Memory:
+-----------------------------------
+
+Ruby Vips
+-----------------------------------
+Total allocated: 4198848 bytes (17 objects)
+Total retained:  1049672 bytes (4 objects)
+
+Allocated memory by gem
+   3149176  other
+   1049672  ruby-vips-2.0.7
+
+Allocated objects by gem
+        13  other
+         4  ruby-vips-2.0.7
+
+
+Ruby MiniMagick
+-----------------------------------
+Total allocated: 22184049 bytes (1531 objects)
+Total retained:  1055113 bytes (67 objects)
+
+Allocated memory by gem
+  12629905  mini_magick-4.8.0
+   6324099  ruby-2.4.2/lib
+   3150256  other
+     79789  rubygems
+
+Allocated objects by gem
+       854  rubygems
+       398  mini_magick-4.8.0
+       239  ruby-2.4.2/lib
+        40  other
+
+
+Ruby ImageProcessing-MiniMagick
+-----------------------------------
+Total allocated: 12707842 bytes (1213 objects)
+Total retained:  3425 bytes (48 objects)
+
+Allocated memory by gem
+   6315429  mini_magick-4.8.0
+   3161408  ruby-2.4.2/lib
+   3150496  other
+     79309  rubygems
+      1200  image_processing-0.4.5
+
+Allocated objects by gem
+       842  rubygems
+       206  mini_magick-4.8.0
+       107  ruby-2.4.2/lib
+        31  other
+        27  image_processing-0.4.5

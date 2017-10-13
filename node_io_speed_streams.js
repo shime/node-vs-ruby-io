@@ -15,7 +15,7 @@ var performUpload = function(size, next){
   var resizer = function(){
     var client = sharp()
     return client.resize.
-      apply(client, SIZES[size])
+      apply(client, [SIZES[size][0]])
   }
 
   var stream = image.pipe(resizer(size)).pipe(fs.createWriteStream(name))
